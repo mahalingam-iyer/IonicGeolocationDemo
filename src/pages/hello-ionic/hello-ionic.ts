@@ -1,4 +1,4 @@
-//@suthor: Mahalingam Iyer
+//@author: Mahalingam Iyer
 //POC for RUN Application 
 
 //import dependencies
