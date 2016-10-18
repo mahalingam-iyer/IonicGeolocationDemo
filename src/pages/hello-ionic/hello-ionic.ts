@@ -37,11 +37,11 @@ export class HelloIonicPage {
 	}
 
   //add marker for current user location
-  addCurrentLocMarker():void{
+  addCurrentLocMarker(pos:any):void{
   	let marker = new google.maps.Marker({
     map: this.map,
     animation: google.maps.Animation.BOUNCE,
-    position: this.map.getCenter(),
+    position: pos,
     icon: "assets/icon/running1.png"
   });
  
@@ -61,7 +61,10 @@ export class HelloIonicPage {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
-        	this.addCurrentLocMarker();
+        	this.addCurrentLocMarker(position);
+          google.maps.event.addListener(this.map, "click", (event)=>{
+            this.addCurrentLocMarker(event.latLng);
+          });
         },(err) => {
           //error handling currently console log
       console.log(err);
